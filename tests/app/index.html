@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>App</title>
+</head>
+<body>
+
+<p>Test results are available in the console.</p>
+
+<script src="bundle.js"></script>
+<script>
+  function assert(expression, errMsg) {
+    if (!expression) throw new Error(errMsg || 'Assertion failed');
+  }
+
+  assert(typeof app == 'object', 'App was not exposed');
+  assert(app.a == 'a', 'The a.js module was not executed');
+  assert(app.bWasCalled === true, 'The init function was not called');
+
+  console.log('All tests passed');
+</script>
+</body>
+</html>
